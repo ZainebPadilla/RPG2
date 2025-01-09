@@ -9,14 +9,7 @@ import Monk from './Monk.js';
 class Game {
     constructor () {
         this.turnLeft = 10;
-        this.players = [
-            new Fighter('Grace'),
-            new Paladin('Ulder'),
-            new Monk('Moana'),
-            new Berzerker('Draven'),
-            new Assassin('Carl'),
-
-            ];
+        this.players = [];
         
     }
 
