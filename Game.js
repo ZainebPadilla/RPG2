@@ -20,6 +20,11 @@ class Game {
         
     }
 
+     // Méthode pour passer un tour
+     skipTurn() {
+        this.turnLeft -= 1;
+    }
+
     startTurn() {
         console.log(`Début du tour n° ${11 - this.turnLeft}.`); // Affiche le numéro du tour
 
@@ -61,7 +66,7 @@ class Game {
 
 
         // Réduire le nombre de tours restants
-        this.turnLeft -= 1;
+        this.skipTurn();
     }
 
     startGame() {
@@ -77,12 +82,22 @@ class Game {
 
     }
 
+    // Méthode pour afficher les statistiques des personnages
+    watchStats() {
+        console.log('Statistiques des personnages :');
+        this.players.forEach(player => {
+            console.log(`${player.name} - HP: ${player.hp}, Mana: ${player.mana}, Status: ${player.status}`);
+        });
+    }
+
     endGame() {
 
         const alivePlayers = this.players.filter(player => player.status === 'playing');
 
         if (alivePlayers.length === 1) {
             console.log(`${alivePlayers[0].name} a gagné!`);
+        } else {
+            console.log('La partie est terminée sans gagnant.');
         }
 
     }
